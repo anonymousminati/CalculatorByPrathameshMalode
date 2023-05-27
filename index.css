@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+textarea, button {
+  border: 1px solid rgb(68, 67, 67) !important;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+body.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+body main.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+body main.container .calculatorBody {
+  background-color: #ffffff;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 24px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+}
+body main.container .calculatorBody.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+body main.container .calculatorBody.light-theme {
+  background-color: #f8f8f8;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+}
+body main.container .calculatorBody .nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 16px;
+  padding-block: 0.5rem;
+}
+body main.container .calculatorBody .nav .toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+body main.container .calculatorBody .nav .toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+body main.container .calculatorBody .nav .toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+body main.container .calculatorBody .nav .toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+body main.container .calculatorBody .nav .toggle-switch input:checked + .slider {
+  background-color: #424040;
+}
+body main.container .calculatorBody .nav .toggle-switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+body main.container .calculatorBody .nav .toggle-switch.round .slider {
+  border-radius: 34px;
+}
+body main.container .calculatorBody .nav .toggle-switch.round .slider:before {
+  border-radius: 50%;
+}
+body main.container .calculatorBody .nav .github-button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+body main.container .calculatorBody .nav .github-button.light-theme {
+  color: rgb(0, 0, 0);
+}
+body main.container .calculatorBody .nav .github-button.light-theme:hover {
+  color: #060681;
+}
+body main.container .calculatorBody .nav .github-button.dark-theme {
+  color: rgb(78, 77, 77);
+}
+body main.container .calculatorBody .nav .github-button.dark-theme:hover {
+  color: #cccccc;
+}
+body main.container .calculatorBody .inputOutputField {
+  width: 100%;
+  height: 80px;
+  background-color: #f8f8f8;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  margin: 16px;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+body main.container .calculatorBody .inputOutputField.dark-theme {
+  background-color: #333333;
+  color: #ffffff;
+}
+body main.container .calculatorBody .inputOutputField:focus {
+  outline: none;
+}
+body main.container .calculatorBody .calciButtons {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+body main.container .calculatorBody .calciButtons button {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+body main.container .calculatorBody .calciButtons button.dark-theme {
+  color: #ffffff;
+}
+body main.container .calculatorBody .calciButtons button:hover {
+  background-color: #f2f2f2;
+}
+body main.container .calculatorBody .calciButtons button:focus {
+  outline: none;
+}
+body main.container .calculatorBody .equalsButton {
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  grid-column: span 1;
+  color: white;
+  background-color: rgb(48, 84, 107);
+}
+body main.container .calculatorBody .equalsButton.dark-theme {
+  color: #ffffff;
+}
+body main.container .calculatorBody .equalsButton:hover {
+  background-color: #f2f2f2;
+}
+body main.container .calculatorBody .equalsButton:focus {
+  outline: none;
+}
+
+/* Reset default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set default styles for headings */
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+/* Set default styles for paragraphs */
+p {
+  margin-bottom: 1em;
+}
+
+/* Set default styles for lists */
+ul,
+ol {
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Add basic styles for links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Add a container for the page */
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}/*# sourceMappingURL=index.css.map */

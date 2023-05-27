@@ -1,0 +1,310 @@
+$background-color: #ffffff;
+$text-color: #000000;
+$input-background-light: #f8f8f8;
+$input-text-light: #000000;
+$input-background-dark: #333333;
+$input-text-dark: #ffffff;
+$github-logo-size: 24px;
+$github-button-font-size: 1.5rem;
+$github-button-color-light: #000000;
+$github-button-color-dark: #ffffff;
+
+// Dark theme
+@media (prefers-color-scheme: dark) {
+    $background-color: #000000;
+    $text-color: #ffffff;
+    $input-background-light: #333333;
+    $input-text-light: #ffffff;
+    $input-background-dark: #f8f8f8;
+    $input-text-dark: #000000;
+    $github-button-color-light: #ffffff;
+    $github-button-color-dark: #000000;
+}
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+textarea,button{
+    border: 1px solid rgb(68, 67, 67)!important;
+}
+
+// Light theme
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+
+    &.dark-theme {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    main.container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .calculatorBody {
+            background-color: $background-color;
+            width: 350px;
+            //   height: 630px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding: 24px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+
+            &.dark-theme {
+                background-color: #333333;
+                color: #ffffff;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+
+            &.light-theme {
+                background-color: #f8f8f8;
+                color: #000000;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.342);
+               
+            }
+
+            .nav {
+                .toggle-switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 34px;
+
+                    input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #ccc;
+                        transition: 0.4s;
+                        border-radius: 20px;
+
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            height: 26px;
+                            width: 26px;
+                            left: 4px;
+                            bottom: 4px;
+                            background-color: white;
+                            transition: 0.4s;
+                            border-radius: 20px;
+                        }
+                    }
+
+                    input:checked+.slider {
+                        background-color: #424040;
+
+                        &:before {
+                            transform: translateX(26px);
+                        }
+                    }
+
+                    &.round {
+                        .slider {
+                            border-radius: 34px;
+
+                            &:before {
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                }
+
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-inline: 16px;
+                padding-block: 0.5rem;
+
+                .github-button {
+                    font-size: $github-button-font-size;
+                    cursor: pointer;
+                    transition: color 0.3s;
+
+                   
+                    &.light-theme {
+                        color: rgb(0, 0, 0);
+
+                        &:hover {
+                            color: darken(rgb(11, 11, 226), 20%);
+                        }
+                    }
+                    &.dark-theme {
+                        color: rgb(78, 77, 77);
+
+                        &:hover {
+                            color: darken(white, 20%);
+                        }
+                    }
+                }
+            }
+
+            .inputOutputField {
+                width: 100%;
+                height: 80px;
+                background-color: $input-background-light;
+                color: $input-text-light;
+                border: none;
+                border-radius: 4px;
+                margin: 16px;
+
+                font-size: 16px;
+                transition: background-color 0.3s, color 0.3s;
+
+                &.dark-theme {
+                    background-color: $input-background-dark;
+                    color: $input-text-dark;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .calciButtons {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+                margin-bottom: 16px;
+                padding: 8px;
+
+                button {
+                    width: 100%;
+                    height: 48px;
+                    font-size: 18px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: background-color 0.3s, color 0.3s;
+
+                    &.dark-theme {
+                        color: $input-text-dark;
+                    }
+
+                    &:hover {
+                        background-color: #f2f2f2;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            .equalsButton {
+                width: 100%;
+                height: 48px;
+                font-size: 18px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+                // margin-top: 8px;
+                grid-column: span 1;
+                color: white;
+                background-color: rgb(48, 84, 107);
+
+                &.dark-theme {
+                    color: $input-text-dark;
+                }
+
+                &:hover {
+                    background-color: #f2f2f2;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+/* Reset default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set default styles for headings */
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+/* Set default styles for paragraphs */
+p {
+    margin-bottom: 1em;
+}
+
+/* Set default styles for lists */
+ul,
+ol {
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Add basic styles for links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Add a container for the page */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}

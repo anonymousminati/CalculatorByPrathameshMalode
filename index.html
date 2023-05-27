@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator by Prathamesh</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <main class="container">
+        <div class="calculatorBody">
+            <div class="nav">
+                <label class="toggle-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <a class="github-button" href="https://github.com/anonymousminati/CalculatorByPrathameshMalode" aria-label="Star your-repo on GitHub">
+                    <i class="fab fa-github"></i> 
+                </a>
+            </div>
+
+            <textarea name="" id="" cols="30" rows="10" class="inputOutputField"></textarea>
+            
+            <div class="calciButtons">
+                <button class="button">7</button>
+                <button class="button">8</button>
+                <button class="button">9</button>
+                <button class="button">⌫</button>
+                <button class="button">4</button>
+                <button class="button">5</button>
+                <button class="button">6</button>
+                <button class="button">*</button>
+                <button class="button">1</button>
+                <button class="button">2</button>
+                <button class="button">3</button>
+                <button class="button">-</button>
+                <button class="button">0</button>
+                <button class="button">.</button>
+                <button class="button">+</button>
+                <button class="button">√</button>
+                <button class="button">^2</button>
+                <button class="button">/</button>
+                <button class="button">C</button>
+                <button class="equalsButton" >=</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+       const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const calciBody = document.getElementsByClassName('calculatorBody')[0];
+const githubButton = document.querySelector('.github-button');
+
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        body.classList.add('dark-theme');
+        body.classList.remove('light-theme');
+        calciBody.classList.add('dark-theme');
+        calciBody.classList.remove('light-theme');
+        githubButton.classList.add('dark-theme');
+        githubButton.classList.remove('light-theme');
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        calciBody.classList.remove('dark-theme');
+        calciBody.classList.add('light-theme');
+        githubButton.classList.remove('dark-theme');
+        githubButton.classList.add('light-theme');
+    }
+});
+
+    </script>
+    <script src="./index.js"></script>
+</body>
+</html>
